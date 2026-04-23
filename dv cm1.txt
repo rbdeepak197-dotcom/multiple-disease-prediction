@@ -1,0 +1,330 @@
+to delete file - rm -rf Git_Lab_Experiment1
+to delete git - rm -rf git-lab-demo
+
+1. 
+mkdir Git_Lab_Experiment1
+cd Git_Lab_Experiment1
+
+git init
+
+git config --global user.name "Deepak R B"
+git config --global user.email "rbdeepak197@gmail.com"
+
+echo "This is my first Git experiment" > README.txt
+
+git status
+
+git add README.txt
+git commit -m "Initial commit"
+
+echo "Git tracks file changes" >> README.txt
+
+git add README.txt
+git commit -m "Updated README file"
+
+git log
+
+2.
+mkdir Git_Lab_Experiment2
+cd Git_Lab_Experiment2
+
+git init
+
+echo "This is main branch file" > file.txt
+git add file.txt
+git commit -m "Initial commit in main"
+
+git branch feature-branch
+git checkout feature-branch
+
+echo "Change from feature branch" >> file.txt
+git add file.txt
+git commit -m "Update from feature branch"
+
+git checkout master
+
+echo "Change from main branch" >> file.txt
+git add file.txt
+git commit -m "Update from main branch"
+
+git merge feature-branch
+
+git add file.txt
+git commit -m "Resolved merge conflict"
+
+git log --oneline
+
+git branch -d feature-branch
+
+3.
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+
+cd Desktop
+git clone https://github.com/YourUsername/git-lab-demo.git
+cd git-lab-demo
+
+notepad main.py
+
+git add main.py
+git commit -m "Add main.py file"
+
+git push -u origin main
+
+git pull origin main
+
+git status
+git log
+
+4.
+cd Desktop
+git clone https://github.com/YourUsername/git-lab-demo.git
+cd git-lab-demo
+
+git branch feature-update
+git checkout feature-update
+
+notepad main.py
+
+git add main.py
+git commit -m "Updated file in feature branch"
+
+git push origin feature-update
+
+Step 7: Create Pull Request on GitHub (Open GitHub → Pull Requests → New Pull Request → Create Pull Request) 
+Step 8: Merge Pull Request (Click Merge Pull Request → Confirm merge)
+
+git checkout main
+git pull origin main
+
+git status
+git log
+
+
+5.
+cd ~
+
+mkdir DevOps_Exp5
+cd DevOps_Exp5
+
+git init
+git status
+
+echo "Git Tagging Experiment" > file1.txt
+
+git add file1.txt
+git commit -m "Initial commit for tagging experiment"
+
+git log --oneline
+
+git tag -a v1.0 -m "Version 1.0 release"
+
+git tag
+git show v1.0
+
+go hub n create exp5
+
+git remote add origin https://github.com/USERNAME/DevOps_Exp5.git
+
+git push origin master
+git push origin v1.0
+git push --tags
+
+6.# EXPERIMENT–6 : MAVEN
+
+# Step 1: Open Command Prompt
+# Step 2: Check Java installation
+java --version
+
+# Step 3: Check Maven installation
+mvn --version
+
+# Step 4: Create a new folder in Desktop named project
+cd %USERPROFILE%\Desktop
+mkdir project
+cd project
+
+# Step 5: Create a folder inside it named maven-project
+mkdir maven-project
+cd maven-project
+
+# Step 6: Generate Maven project
+mvn archetype:generate
+
+# Step 7: Choose a number you will get, type 2309
+# Step 8: Choose a number: 9 (choose latest version)
+
+# Step 9: Define value for property groupId
+org.bnm
+# or
+com.google
+
+# Step 10: Define value for property artifactId
+maven-demo
+
+# Step 11: Define value for property version
+1.0-SNAPSHOT
+
+# Step 12: Define value for property package
+org.bnm.demo
+
+# Step 13: Type Y and press Enter
+Y
+
+# Step 14: Go back to the folder you have created
+cd maven-demo
+
+# Step 15: Check project structure
+dir
+
+# Step 16: Open src/main/java/org/bnm/demo/App.java
+# Replace code with ANY ONE program below
+
+# ---------------- PROGRAM 1: HELLO WORLD ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello World");
+    }
+}
+
+# ---------------- PROGRAM 2: LENGTH OF STRING ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        String s = "DevOps";
+        System.out.println("Length of string: " + s.length());
+    }
+}
+
+# ---------------- PROGRAM 3: AREA OF SQUARE ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        int side = 5;
+        int area = side * side;
+        System.out.println("Area of square: " + area);
+    }
+}
+
+# ---------------- PROGRAM 4: EVEN OR ODD ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        int n = 10;
+        if (n % 2 == 0)
+            System.out.println("Even number");
+        else
+            System.out.println("Odd number");
+    }
+}
+
+# ---------------- PROGRAM 5: SIMPLE INTEREST ----------------
+package org.bnm.demo;
+
+public class App {
+    public static void main(String[] args) {
+        int p = 1000, t = 2, r = 5;
+        int si = (p * t * r) / 100;
+        System.out.println("Simple Interest: " + si);
+    }
+}
+
+# Step 17: Go back to maven-demo folder
+cd maven-demo
+
+# Step 18: Build the project
+mvn clean package
+
+# Step 19: Go to target folder
+cd target
+
+# Step 20: Verify JAR file
+dir
+# Output: maven-demo-1.0-SNAPSHOT.jar
+
+
+7.
+public class BankService {
+
+    static class BankAccount {
+        private double balance;
+
+        public BankAccount(double initialBalance) {
+            if (initialBalance < 0) {
+                throw new IllegalArgumentException("Initial balance cannot be negative");
+            }
+            this.balance = initialBalance;
+        }
+
+        public void deposit(double amount) {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Deposit must be positive");
+            }
+            balance += amount;
+        }
+
+        public void withdraw(double amount) {
+            if (amount <= 0 || amount > balance) {
+                throw new IllegalArgumentException("Invalid withdrawal");
+            }
+            balance -= amount;
+        }
+
+        public double getBalance() {
+            return balance;
+        }
+    }
+
+    public static void main(String[] args) {
+        BankAccount acc = new BankAccount(5000);
+
+        System.out.println("Initial Balance: " + acc.getBalance());
+
+        acc.deposit(700);
+        System.out.println("Balance after deposit: " + acc.getBalance());
+
+        acc.withdraw(100);
+        System.out.println("Balance after withdrawal: " + acc.getBalance());
+
+        System.out.println("Final Balance: " + acc.getBalance());
+    }
+}
+
+9 n 10.
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing the project'
+            }
+        }
+    }
+}
+
+
+pipeline {
+    agent any
+    stages {
+        stage('Addition') {
+            steps {
+                script {
+                    int a = 10
+                    int b = 20
+                    int sum = a + b
+                    echo "Addition of ${a} and ${b} is ${sum}"
+                }
+            }
+        }
+    }
+}
